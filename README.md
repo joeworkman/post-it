@@ -1,4 +1,4 @@
-# Post::It
+# PostIt
 
 TODO: Write a gem description
 
