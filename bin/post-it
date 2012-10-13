@@ -5,31 +5,33 @@ require 'methadone'
 require 'post-it'
 
 class App
-  include Methadone::Main
-  include Methadone::CLILogging
-  include Methadone::SH
-
-  main do |message|
+	include Methadone::Main
+	include Methadone::CLILogging
+	include Methadone::SH
 	
-	begin
-		post_it = PostIt::Notification.new({:title => options[:title], :subtitle => options[:subtitle]})
-	 	post_it.send(message)
-	rescue Exception => e 
-	 	exit_now!(e.message) 
+	main do |message|	
+		begin
+			post_it = PostIt::Notification.new({:title => options[:title], :subtitle => options[:subtitle]})
+		 	post_it.send(message,{:prepare => options[:prepare]})
+		rescue Exception => e 
+		 	exit_now!(e.message) 
+		end
 	end
 
-  end
+	# Declare command-line interface here
+	version PostIt::VERSION
+	
+	description 'A simple utlity that uses `Sticky Notificiations.app` to post messages to Notification Center on Mac OS X.
+This utility will only function if you have Sticky Notificiations.app installed.'
+	
+	options['title'] = 'Post It'
+	
+	on("--prepare","Prepare the post-it and open it inside Sticky Notifications.app")
+	on("-t TITLE","--title","The title of the notification")
+	on("-s SUBTITLE","--subtitle","The subtitle of the notification")
+	
+	arg :message, 'The notification message that will be displayed in Notification Center.
 
-  # Declare command-line interface here
-  version PostIt::VERSION
-
-  description 'A simple utlity that uses `Sticky Notificiations.app` to post messages to Notification Center on Mac OS X.'
-
-  options['title'] = 'Post It'
-  on("-t TITLE","--title","The title of the notification")
-  on("-s SUBTITLE","--subtitle","The subtitle of the notification")
-
-  arg :message, 'The notification message'
-
-  go!
+'
+	go!
 end

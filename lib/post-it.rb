@@ -13,6 +13,7 @@ module PostIt
 			@title = options[:title] ? options[:title] : 'Post It'
 			@subtitle = options[:subtitle] ? options[:subtitle] : nil
 			
+			# Raise an exception if the Sticky Notifications app was not found
 			unless File.exists?('/Applications/Sticky Notifications.app')
 				raise "Sticky Notifications.app does not seem to be installed"
 			end
@@ -21,18 +22,21 @@ module PostIt
 	public 
 		
 		def send(message,options={})
+			# Setup the default arguments for the SN url
 			title = options[:title] ? options[:title] : self.title
 			subtitle = options[:subtitle] ? options[:subtitle] : self.subtitle
+			method = options[:prepare] ? 'prepare' : 'note'
 			
-			notifyurl = "sticky-notifications://note?message=#{message}&title=#{title}"	  
+			# Build the URL scheme for sticky-notifications
+			notifyurl = "sticky-notifications://#{method}?message=#{message}&title=#{title}"	  
 			notifyurl += "&subtitle=#{subtitle}" if subtitle		
 
+			# Via Methadone::SH (shell) run the open command to open the url. Raise an exception if there were errors
 			begin
 			 	sh "open '#{notifyurl}'"
 			rescue Exception => e 
 			 	raise e.message 
 			end
 		end
-
 	end
 end

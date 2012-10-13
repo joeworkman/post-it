@@ -14,4 +14,5 @@ Feature: Send notifications to Notification Center via Sticky Notifications.app
       |--version|
       |--title|
       |--subtitle|
+      |--prepare|
       

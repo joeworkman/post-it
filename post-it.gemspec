@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["joe@workmanmail.com"]
   gem.description   = %q{A simple utlity that uses `Sticky Notificiations.app` to post messages to Notification Center on Mac OS X.}
   gem.summary       = %q{A simple utlity that uses `Sticky Notificiations.app` to post messages to Notification Center on Mac OS X.}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/joeworkman/post-it"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
