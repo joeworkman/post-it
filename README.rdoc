@@ -1,23 +1,49 @@
-= post-it - DESCRIBE YOUR GEM
+= post-it - Send post-it notes Notification Center on Mac OS X.
 
-Author::  YOUR NAME (YOUR EMAIL)
-Copyright:: Copyright (c) 2012 YOUR NAME
+Author::  Joe Workman (joe at workmanmail.com)
+Copyright:: Copyright (c) 2012 Joe Workman
+
+License:: Distributes under the MIT license, 
+		  see LICENSE.txt in the source distro
 
 
-License:: mit, see LICENSE.txt
+[Sticky Notificiations][sn-mas] is a Mac Application developed by the brilliant [Matt Gemmell](http://mattgemmell.com). It allows you to create post-it note style reminders into Notification Center (Mountain Lion or later) or Growl.
 
+Post-It is a simple utlity that uses [Sticky Notificiations][sn-mas] to post messages to Notification Center on Mac OS X. You can now easily send yourself notifications from command-line or your own scripts and applications.
 
+**Important**: This utility will only function if you have Sticky Notificiations.app v1.0.4+ installed.
 
-DESCRIBE YOUR GEM HERE
 
 == Links
 
-* {Source on Github}[LINK TO GITHUB]
+* {Source on Github}[GITHUB]
 * RDoc[LINK TO RDOC.INFO]
 
 == Install
 
-== Examples
+Install:
+	gem install post-it 
+    
+== Shell Examples
 
-== Contributing
+Post a simple message: 
+	post-it "My Message"
 
+Post with custom titles: 
+	post-it -t "My Title" -s "My Subtitle" "My Message"
+
+Prepare a message in SN:
+	post-it --prepare -t "My Title" -s "My Subtitle" "My Message"
+
+
+== Ruby Examples
+
+Quick and dirty notifications:
+	post_it = PostIt::Notification.new()
+	post_it.send("My Message")
+
+You can define default values:
+	post_it = PostIt::Notification.new({:title => "My Title", :subtitle => "My Subtitle"})
+
+Pass options to send method:
+ 	post_it.send(message,{:prepare => true,:title => "My Title"})

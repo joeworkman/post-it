@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    post-it (0.0.1)
+    post-it (0.0.2)
       methadone (~> 1.2.1)
 
 GEM
