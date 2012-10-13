@@ -1,4 +1,6 @@
 require "post-it/version"
+require 'optparse'
+require 'methadone'
 
 module PostIt
 	class Notification

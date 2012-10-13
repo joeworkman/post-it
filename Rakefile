@@ -33,4 +33,3 @@ Rake::RDocTask.new do |rd|
 end
 
 task :default => [:test,:features]
-
