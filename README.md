@@ -1,10 +1,10 @@
 # Post-It
 
-[Sticky Notificiations][sn-mas] is a Mac Application developed by the brilliant [Matt Gemmell](http://mattgemmell.com). It allows you to create post-it note style reminders into Notification Center (Mountain Lion or later) or Growl.
+[Sticky Notifications][sn-mas] is a Mac Application developed by the brilliant [Matt Gemmell](http://mattgemmell.com). It allows you to create post-it note style reminders into Notification Center (Mountain Lion or later) or Growl.
 
-Post-It is a simple utlity that uses [Sticky Notificiations][sn-mas] to post messages to Notification Center on Mac OS X. You can now easily send yourself notifications from command-line or your own scripts and applications.
+Post-It is a simple utility that uses [Sticky Notifications][sn-mas] to post messages to Notification Center on Mac OS X. You can now easily send yourself notifications from command-line or your own scripts and applications.
 
-**Important**: This utility will only function if you have Sticky Notificiations.app v1.0.4+ installed.
+**Important**: This utility will only function if you have Sticky Notifications.app v1.0.4+ installed.
 
 ## Installation
 
