@@ -67,9 +67,13 @@ You can define default values for both the `title` and the `subtitle` when you c
 
 	post_it = PostIt::Notification.new({:title => "My Title", :subtitle => "My Subtitle"})
 
-You can override the default titles and also pass the `prepare` option when you are sending the notification:
+You can override the default titles when you are sending the notification:
 
- 	post_it.send(message,{:prepare => true,:title => "My Title"})
+ 	post_it.send(message,{:title => "My Title",:subtitle => "Post-It"})
+
+You can prepare a notification to be posted by having it open inside a SN window:
+
+	post_it.prepare(message,{:title => "Optional"})
 
 Its probably a good idea to check for errors when you are using Post-It. Exceptions will be raised in two scenarios:
 

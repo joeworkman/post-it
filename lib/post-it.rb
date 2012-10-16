@@ -40,5 +40,10 @@ module PostIt
 			 	raise e.message 
 			end
 		end
+
+		def prepare(message,options={})
+			options[:prepare] = true
+			self.send(message,options)						
+		end
 	end
 end

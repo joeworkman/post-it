@@ -41,9 +41,11 @@ Prepare a message in SN:
 Quick and dirty notifications:
 	post_it = PostIt::Notification.new()
 	post_it.send("My Message")
+	post_it.prepare("Prepare My Message")
 
 You can define default values:
 	post_it = PostIt::Notification.new({:title => "My Title", :subtitle => "My Subtitle"})
 
 Pass options to send method:
- 	post_it.send(message,{:prepare => true,:title => "My Title"})
+ 	post_it.send(message,{:title => "My Title",:subtitle => "Post-It"})
+ 	post_it.prepare(message,{:title => "My Title"})

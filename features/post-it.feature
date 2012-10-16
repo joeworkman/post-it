@@ -1,4 +1,4 @@
-Feature: Send notifications to Notification Center via Sticky Notifications.app
+Feature: Command line usage
   So that I have a nice way of getting feedback from my script
   I want send notifications to Notification Center via Sticky Notifications.app
 
@@ -15,4 +15,3 @@ Feature: Send notifications to Notification Center via Sticky Notifications.app
       |--title|
       |--subtitle|
       |--prepare|
-      
